@@ -17,7 +17,9 @@ const nouns: string[] = [
     "Roommate",
     "Git Repo",
     "Emoji",
-    "Catgirl"
+    "Catgirl",
+    "Gamer",
+    "Programmer"
 ]
 
 const adjectives: string[] = [
@@ -33,7 +35,8 @@ const adjectives: string[] = [
     "Huge",
     "Purple",
     "Invisible",
-    "Transgender"
+    "Transgender",
+    "Epic",
 ]
 
 const verbs: string[] = [
@@ -46,6 +49,7 @@ const verbs: string[] = [
     "Invent",
     "Pet",
     "Poke",
+    "Defenestrate"
 ]
 
 const castnames: string[] = [
