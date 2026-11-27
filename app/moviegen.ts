@@ -1,8 +1,6 @@
 // I spent time on this I could've spent doing actual work!
 // (it was totally worth it :3)
 
-import { Movie } from "./types"
-
 const nouns: string[] = [
     "Knight",
     "Lesbian",

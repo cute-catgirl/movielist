@@ -6,6 +6,7 @@ import { AddMovieButtonExample } from './components/AddMovieButtonExample'
 export default async function Page() {
   const supabase = await createClient()
 
+  // Get all movies from the database
   const { data: movies } = await supabase.from('movies').select()
 
   return (
