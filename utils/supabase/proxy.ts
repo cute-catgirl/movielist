@@ -1,3 +1,4 @@
+// THIS CODE WAS COPIED FROM SUPABASE
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
