@@ -7,5 +7,5 @@ export function AddMovieButtonExample() {
         // Look at actions.ts to see what this is doing :3
         addMovie(randomTitle(), "2026", randomCast());
     }
-    return <button onClick={addMovieExample}>Add movie</button>
+    return <button onClick={addMovieExample} className="border p-1 bg-slate-100 hover:bg-slate-200">Add movie</button>
 }

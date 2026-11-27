@@ -7,7 +7,7 @@ export async function addMovie(title: string, releaseYear: string, actors: strin
     // New supabase client
     const supabase = await createClient();
     // Insert the movie to movies
-    const { data, error } = await supabase
+    const { error } = await supabase
     .from("movies")
     .insert({
         title: title,
@@ -21,3 +21,19 @@ export async function addMovie(title: string, releaseYear: string, actors: strin
     // Without this, the new movie wouldn't show up until the page is manually reloaded
     revalidatePath('/'); // Set the path here to the page we want to revalidate
 }
+
+export async function deleteAllMovies() {
+    // New supabase client
+    const supabase = await createClient();
+    // Remove everything with an ID (supabase doesn't let use just run delete on everything)
+    const { error } = await supabase
+    .from("movies")
+    .delete()
+    .not('id', 'is', 'null')
+    // If an error is returned, print it to the console
+    if (error) console.error(error);
+    // Revalidate the path so the UI immediately updates
+    revalidatePath('/');
+}
+
+// TODO: Add a function to delete a specific movie, and a function to edit a specific movie
