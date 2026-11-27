@@ -13,7 +13,7 @@ export default async function Page() {
     <div>
       <AddMovieButtonExample></AddMovieButtonExample>
     <ul>
-      {movies?.map((movie: Movie) => (
+      {movies?.toReversed().map((movie: Movie) => (
         <MovieCard movie={movie} key={movie.id} />
       ))}
     </ul>

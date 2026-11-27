@@ -81,9 +81,9 @@ function pickAndRemoveRandom<Type>(array: Type[]): Type {
 
 export function randomTitle(): string {
     return pickRandom(templates)
-    .replace("{noun}", pickRandom(nouns))
-    .replace("{adjective}", pickRandom(adjectives))
-    .replace("{verb}", pickRandom(verbs))
+    .replaceAll("{noun}", () => pickRandom(nouns))
+    .replaceAll("{adjective}", () => pickRandom(adjectives))
+    .replaceAll("{verb}", () => pickRandom(verbs))
 }
 
 export function randomCast(): string[] {
