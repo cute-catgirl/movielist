@@ -12,15 +12,17 @@ export default async function Page() {
   const { data: movies } = await supabase.from('movies').select()
 
   return (
-    <div className="flex gap-2 m-2">
+    <div className="m-2">
       {/* TODO: Replace this with a proper form for adding movies with user-provided information */}
+      <div className="flex gap-2 pb-2">
       <AddMovieButtonExample></AddMovieButtonExample>
       <DeleteAllMoviesButton></DeleteAllMoviesButton>
-    <ul>
+      </div>
+    <div className="flex gap-2 flex-col">
       {movies?.toReversed().map((movie: Movie) => (
         <MovieCard movie={movie} key={movie.id} />
       ))}
-    </ul>
+    </div>
     </div>
   )
 }
