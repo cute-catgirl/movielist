@@ -3,6 +3,7 @@ import { Movie } from './types'
 import MovieCard from './components/MovieCard'
 import { AddMovieButtonExample } from './components/AddMovieButtonExample'
 import { DeleteAllMoviesButton } from './components/DeleteAllMoviesButton'
+import { AddMovieForm } from "./components/MovieForms"
 
 export default async function Page() {
   // Supabase client
@@ -18,6 +19,7 @@ export default async function Page() {
       <AddMovieButtonExample></AddMovieButtonExample>
       <DeleteAllMoviesButton></DeleteAllMoviesButton>
       </div>
+      <AddMovieForm />
     <div className="flex gap-2 flex-col">
       {movies?.toReversed().map((movie: Movie) => (
         <MovieCard movie={movie} key={movie.id} />
