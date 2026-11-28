@@ -1,7 +1,14 @@
+"use client"
 import { Movie } from "../types";
+import { deleteMovie } from "../actions";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
-    // TODO: Add a delete button which removes the movie from the database
+    // handles deleting the movie on this card
+    function handleDelete() {
+        deleteMovie(movie.id);
+    };
+    // handles editing the movie on this card
+
     return <div className="border p-2 bg-slate-50">
         <h1 className="text-xl">{movie.title}</h1>
         <p>{movie.release_year}</p>
@@ -11,5 +18,17 @@ export default function MovieCard({ movie }: { movie: Movie }) {
                 <li key={index}>{actor}</li>
             ))}
         </ul>
+        <button
+            onClick={handleDelete}
+            className="border"
+        >
+            Delete
+        </button>
+        <button
+            // onClick={}
+            className="border"
+        >
+            Edit
+        </button>
     </div>
 }
