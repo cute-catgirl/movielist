@@ -36,4 +36,37 @@ export async function deleteAllMovies() {
     revalidatePath('/');
 }
 
-// TODO: Add a function to delete a specific movie, and a function to edit a specific movie
+export async function deleteMovie(id: number) {
+    // New supabase client
+    const supabase = await createClient();
+    // Remove the movie with the given id
+    const { error } = await supabase
+    .from("movies")
+    .delete()
+    .eq("id", id)
+    // If an error is returned, print it to the console
+    if (error) console.error(error);
+    // Revalidate the path so the UI immediately updates
+    revalidatePath("/");
+}
+
+// TODO: Add a function to edit a specific movie
+// (have not tested this function yet)
+export async function updateMovie(id: number, title: string, releaseYear: string, actors:string[]) {
+    // New supabase client
+    const supabase = await createClient();
+    // update the movie with the given id
+    const { error } = await supabase
+    .from("movies")
+    .update({
+        title: title,
+        release_year: releaseYear,
+        actors: actors
+    })
+    .eq("id", id)
+    
+    // If an error is returned, print it to the console
+    if (error) console.error(error);
+    // Revalidate the path so the UI immediately updates
+    revalidatePath("/");
+}
